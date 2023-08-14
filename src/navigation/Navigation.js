@@ -14,7 +14,7 @@ export default function Navigation() {
     <Tab.Navigator>
       <Tab.Screen
         name="Favorite"
-        component={Favorite}
+        component={FavoriteNavigation}
         options={{
           tabBarLabel: "Favoritos",
           tabBarIcon: ({ color, size }) => (
