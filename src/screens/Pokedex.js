@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, Image } from 'react-native'
 import { SafeAreaView } from "react-native-safe-area-context";
 import React, {useState, useEffect} from 'react'
 import { getPokemonApi, getPokemonDetailsByUrlApi } from '../api/pokemon';
@@ -29,15 +29,52 @@ export default function Pokedex() {
         })
 
       }
-      setPokemons([...pokemons, ...pokemonsArray])
+      setPokemons([...pokemons, pokemonsArray])
       console.log(pokemons)
     } catch (error) {
       console.error(error)
     }
   }
   return (
-    <SafeAreaView>
-      <Text>Pokedex</Text>
-    </SafeAreaView>
+      <ScrollView style={styles.scrollContainer}>
+        {pokemons.map((pokemon, index) => (
+          <View key={index} style={styles.pokemonContainer}>
+            <Image
+              source={{ uri: pokemon.imagen }}
+              style={styles.pokemonImage}
+            />
+            <View style={styles.pokemonText}>
+              <Text>{pokemon.name}</Text>
+              <Text>{pokemon.type}</Text>
+              <Text>{pokemon.order}</Text>
+            </View>
+          </View>
+        ))}
+      </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  scrollContainer: {
+    // flexDirection: "row",
+    // flexWrap: "wrap",
+  },
+  pokemonContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  pokemonText: {
+    marginLeft: 2,
+  },
+  pokemonImage: {
+    width: 100,
+    aspectRatio: 1,
+  },
+});
