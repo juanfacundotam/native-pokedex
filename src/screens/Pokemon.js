@@ -6,7 +6,7 @@ export default function Pokemon(props) {
   const {
     route: { params },
     navigation,
-  } = props;-
+  } = props;
   const [pokemon, setPokemon] = useState(null);
   console.log(params.id);
 
