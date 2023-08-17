@@ -27,6 +27,7 @@ export default function Pokedex() {
           order: pokemonDetails.order,
           image:
             pokemonDetails.sprites.other["official-artwork"].front_default,
+            // pokemonDetails.sprites.other["official-artwork"].front_default,
         });
       }
 
