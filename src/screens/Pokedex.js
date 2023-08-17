@@ -41,7 +41,7 @@ const [nextUrl, setNextUrl] = useState(null);
 
   return (
     <SafeAreaView>
-      <PokemonList pokemons={pokemons} loadPokemons={loadPokemons}/>
+      <PokemonList pokemons={pokemons} loadPokemons={loadPokemons} isNext={nextUrl}/>
     </SafeAreaView>
   );
 }
