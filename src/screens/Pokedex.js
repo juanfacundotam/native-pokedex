@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView } from "react-native";
 import { getPokemonsApi, getPokemonDetailsByUrlApi } from "../api/pokemon";
 import PokemonList from "../components/PokemonList";
+
 export default function Pokedex() {
   const [pokemons, setPokemons] = useState([]);
-const [nextUrl, setNextUrl] = useState(null);
-
+  const [nextUrl, setNextUrl] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -27,9 +27,7 @@ const [nextUrl, setNextUrl] = useState(null);
           name: pokemonDetails.name,
           type: pokemonDetails.types[0].type.name,
           order: pokemonDetails.order,
-          image:
-            pokemonDetails.sprites.other["official-artwork"].front_default,
-            // pokemonDetails.sprites.other["home"].front_default,
+          image: pokemonDetails.sprites.other["official-artwork"].front_default,
         });
       }
 
@@ -41,7 +39,11 @@ const [nextUrl, setNextUrl] = useState(null);
 
   return (
     <SafeAreaView>
-      <PokemonList pokemons={pokemons} loadPokemons={loadPokemons} isNext={nextUrl}/>
+      <PokemonList
+        pokemons={pokemons}
+        loadPokemons={loadPokemons}
+        isNext={nextUrl}
+      />
     </SafeAreaView>
   );
 }
