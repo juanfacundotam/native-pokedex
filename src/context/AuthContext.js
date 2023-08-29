@@ -9,14 +9,13 @@ export const AuthContext = createContext({
 export function AuthProvider(props) {
   const { children } = props;
   const [auth, setAuth] = useState(undefined);
-
-  const login = (userData) => {
-    setAuth(userData);
-  };
-
-  const logout = () => {
-    setAuth(undefined);
-  };
+console.log(userData)
+    const login = (userData) => {
+        setAuth(userData)
+    }
+    const logout = () => {
+        setAuth(undefined)
+    }
 
   const valueContext = {
     auth,
@@ -28,3 +27,4 @@ export function AuthProvider(props) {
     <AuthContext.Provider value={valueContext}>{children}</AuthContext.Provider>
   );
 }
+
