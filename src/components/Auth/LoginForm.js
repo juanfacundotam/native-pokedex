@@ -15,8 +15,7 @@ import useAuth from "../../hooks/useAuth";
 export default function LoginForm() {
   const [error, setError] = useState("");
   const { login } = useAuth();
-  console.log(error)
-  console.log(login)
+
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -28,8 +27,10 @@ export default function LoginForm() {
 
       if (username !== user.username || password !== user.password) {
         setError("El usuario o la contraseña no son correcto");
+
       } else {
         login(userDetails);
+
       }
     },
   });
