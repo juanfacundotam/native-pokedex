@@ -9,7 +9,7 @@ export const AuthContext = createContext({
 export function AuthProvider(props) {
   const { children } = props;
   const [auth, setAuth] = useState(undefined);
-console.log(userData)
+
     const login = (userData) => {
         setAuth(userData)
     }
