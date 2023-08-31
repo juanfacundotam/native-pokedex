@@ -59,9 +59,9 @@ export default function LoginForm() {
       <Text style={styles.error}>{formik.errors.password}</Text>
 
       <Text style={styles.error}>{error}</Text>
-      <Text style={styles.instrucion}>User Test:</Text>
-      <Text style={styles.instrucion}>Username: poke</Text>
-      <Text style={styles.instrucion}>Password: poke</Text>
+      <Text style={styles.instruction}>User Test:</Text>
+      <Text style={styles.instruction}>Username: poke</Text>
+      <Text style={styles.instruction}>Password: poke</Text>
     </View>
   );
 }
@@ -99,5 +99,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#f00",
     marginTop: 20,
+  },
+  instruction: {
+    textAlign: "center",
+    color: "black",
+    marginTop: 10,
   },
 });
